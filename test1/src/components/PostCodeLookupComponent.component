@@ -1,0 +1,34 @@
+<apex:component controller="PostCodeLookup" >
+
+    <apex:attribute name="key"              type="String"               assignTo="{!Key}"           description="The key" />
+ 
+    <apex:attribute name="PostCode"         type="String"               assignTo="{!PostCode}"        required="true" description="postcode to search"  />
+    <apex:attribute name="pageController"   type="PageControllerBase"   assignTo="{!pageController}"  required="true" description="PageController"      />
+    <apex:attribute name="Account"          type="Account"              assignTo="{!acc}"             required="false" description="Account to Update"  />
+    <apex:attribute name="Contact"          type="Contact"              assignTo="{!c}"               required="false" description="Contact to Update"  />
+    <apex:attribute name="IsBilling"        type="Boolean"              assignTo="{!IsBilling}"       required="false" description="Billing or Shipping if Account" />
+
+    <div style="text-align:right;margin-right:50px;display:none" id="commandDiv"> 
+        <apex:actionStatus id="POLookupStatus">
+            <apex:facet name="stop">
+                <apex:commandButton value="Lookup" status="POLookupStatus" action="{!Lookup}" rerender="addressTable" id="POLookup"/>
+            </apex:facet>
+            <apex:facet name="start">                           
+               <apex:commandButton value="Wait..." status="POLookupStatus" disabled="true"/>                            
+            </apex:facet>
+        </apex:actionStatus>  
+    </div>
+     
+    <apex:dataTable style="width:80%;margin-left:50px;margin-right:50px;" value="{!addressMap}" 
+        var="addr" id="addressTable" styleClass="list" rendered="{!renderThis}" >
+        <apex:column value="{!addressMap[addr].Street}" />
+        <apex:column value="{!addressMap[addr].City}" />
+        <apex:column value="{!addressMap[addr].PostalCode}" />
+        <apex:column >
+        <apex:commandLink action="{!selectAddr}" value="Select" id="cmdSelectPOAddr" rerender="pageBlockSectionAddressInformation" oncomplete="AddressRerendered();">
+              <apex:param name="selectedAddrMapKey" value="{!addr}" assignTo="{!addressMapKey}"/>
+        </apex:commandLink>
+        </apex:column>
+    </apex:dataTable>
+
+</apex:component>

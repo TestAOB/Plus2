@@ -1,0 +1,18 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+<aura:attribute name="title" type="String" />
+<aura:attribute name="subTitle" type="String" />
+<aura:attribute name="icon" type="String" />
+<div class="slds-page-header">
+<div class="slds-media slds-media--center">
+     <span class="{!'slds-icon__container slds-icon-standard-' + v.icon}">
+            <c:svg class="slds-icon" xlinkHref="{!'/resource/LightningDesignSystem/assets/icons/standard-sprite/svg/symbols.svg#'+v.icon}" />
+     </span>
+    &nbsp;&nbsp;&nbsp;
+<div class="slds-media__body">
+<p class="slds-page-header__title slds-truncate slds-align-middle">{!v.title}</p>
+<p class="slds-text-body--small page-header__info">{!v.subTitle}</p>
+</div>
+</div>
+</div>
+
+</aura:component>

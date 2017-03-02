@@ -1,0 +1,7 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+   <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+   <aura:attribute name="thisYear" type="String"/>
+    <br />
+    <br />
+   <footer> <hr /><span class="copyright">&copy; {!v.thisYear} KUMIKO SULLIVAN &nbsp;&nbsp; ALL RIGHTS RESERVED</span>	</footer>
+</aura:component>

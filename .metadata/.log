@@ -1,0 +1,234 @@
+!SESSION 2017-03-02 06:32:16.604 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.javascript.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.javascript.product
+
+!ENTRY mega.js.tern 4 0 2017-03-02 06:32:29.992
+!MESSAGE Contribution mega.js.jsbeautify failed to initialize. Removing. 
+!STACK 0
+java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.NullPointerException
+	at mega.core.v8.NodeManager.invokeNodeSync(NodeManager.java:593)
+	at mega.core.v8.NodeManager.invokeNodeSync(NodeManager.java:569)
+	at mega.core.v8.beautify.JSBeautify.init(JSBeautify.java:28)
+	at mega.core.JSCore.init(JSCore.java:65)
+	at mega.core.JSCore.<init>(JSCore.java:51)
+	at mega.core.JSCore.<init>(JSCore.java:47)
+	at mega.core.JSCore$JSCoreInit.<clinit>(JSCore.java:40)
+	at mega.core.JSCore.instance(JSCore.java:44)
+	at mega.core.js.AuraServer.get(AuraServer.java:26)
+	at mega.core.index.AuraWorkspace$1.lambda$0(AuraWorkspace.java:227)
+	at mega.force.integration.ForceIDE.executeIfApplicable(ForceIDE.java:22)
+	at mega.core.index.AuraWorkspace$1.run(AuraWorkspace.java:226)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.util.concurrent.ExecutionException: java.lang.NullPointerException
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at mega.core.v8.NodeManager.invokeNodeSync(NodeManager.java:584)
+	... 12 more
+Caused by: java.lang.NullPointerException
+	at mega.core.v8.beautify.JSBeautify.lambda$0(JSBeautify.java:30)
+	at mega.core.v8.NodeManager.lambda$16(NodeManager.java:576)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY mega.js.tern 4 0 2017-03-02 06:32:29.998
+!MESSAGE Contribution mega.js.tern failed to initialize. Removing. 
+!STACK 0
+java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.NullPointerException
+	at mega.core.v8.NodeManager.invokeNodeSync(NodeManager.java:593)
+	at mega.core.v8.NodeManager.invokeNodeSync(NodeManager.java:569)
+	at mega.core.v8.tern.V8ExecutionStrategy.init(V8ExecutionStrategy.java:39)
+	at mega.core.JSCore.init(JSCore.java:65)
+	at mega.core.JSCore.<init>(JSCore.java:51)
+	at mega.core.JSCore.<init>(JSCore.java:47)
+	at mega.core.JSCore$JSCoreInit.<clinit>(JSCore.java:40)
+	at mega.core.JSCore.instance(JSCore.java:44)
+	at mega.core.js.AuraServer.get(AuraServer.java:26)
+	at mega.core.index.AuraWorkspace$1.lambda$0(AuraWorkspace.java:227)
+	at mega.force.integration.ForceIDE.executeIfApplicable(ForceIDE.java:22)
+	at mega.core.index.AuraWorkspace$1.run(AuraWorkspace.java:226)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.util.concurrent.ExecutionException: java.lang.NullPointerException
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at mega.core.v8.NodeManager.invokeNodeSync(NodeManager.java:584)
+	... 12 more
+Caused by: java.lang.NullPointerException
+	at mega.core.v8.tern.V8ExecutionStrategy.lambda$0(V8ExecutionStrategy.java:41)
+	at mega.core.v8.NodeManager.lambda$16(NodeManager.java:576)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY mega.js.tern 4 0 2017-03-02 06:32:30.003
+!MESSAGE Contribution mega.lightning.parser failed to initialize. Removing. 
+!STACK 0
+java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.NullPointerException
+	at mega.core.v8.NodeManager.invokeNodeSync(NodeManager.java:593)
+	at mega.core.v8.NodeManager.invokeNodeSync(NodeManager.java:569)
+	at mega.core.js.JSParser.init(JSParser.java:51)
+	at mega.core.JSCore.init(JSCore.java:65)
+	at mega.core.JSCore.<init>(JSCore.java:51)
+	at mega.core.JSCore.<init>(JSCore.java:47)
+	at mega.core.JSCore$JSCoreInit.<clinit>(JSCore.java:40)
+	at mega.core.JSCore.instance(JSCore.java:44)
+	at mega.core.js.AuraServer.get(AuraServer.java:26)
+	at mega.core.index.AuraWorkspace$1.lambda$0(AuraWorkspace.java:227)
+	at mega.force.integration.ForceIDE.executeIfApplicable(ForceIDE.java:22)
+	at mega.core.index.AuraWorkspace$1.run(AuraWorkspace.java:226)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.util.concurrent.ExecutionException: java.lang.NullPointerException
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at mega.core.v8.NodeManager.invokeNodeSync(NodeManager.java:584)
+	... 12 more
+Caused by: java.lang.NullPointerException
+	at mega.core.js.JSParser.lambda$0(JSParser.java:52)
+	at mega.core.v8.NodeManager.lambda$16(NodeManager.java:576)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY mega.js.tern 4 0 2017-03-02 06:32:30.010
+!MESSAGE Contribution mega.js.tern.aura failed to initialize. Removing. 
+!STACK 0
+java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.NullPointerException
+	at mega.core.v8.NodeManager.invokeNodeSync(NodeManager.java:593)
+	at mega.core.v8.NodeManager.invokeNodeSync(NodeManager.java:569)
+	at mega.core.js.AuraServer.init(AuraServer.java:33)
+	at mega.core.JSCore.init(JSCore.java:65)
+	at mega.core.JSCore.<init>(JSCore.java:51)
+	at mega.core.JSCore.<init>(JSCore.java:47)
+	at mega.core.JSCore$JSCoreInit.<clinit>(JSCore.java:40)
+	at mega.core.JSCore.instance(JSCore.java:44)
+	at mega.core.js.AuraServer.get(AuraServer.java:26)
+	at mega.core.index.AuraWorkspace$1.lambda$0(AuraWorkspace.java:227)
+	at mega.force.integration.ForceIDE.executeIfApplicable(ForceIDE.java:22)
+	at mega.core.index.AuraWorkspace$1.run(AuraWorkspace.java:226)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.util.concurrent.ExecutionException: java.lang.NullPointerException
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at mega.core.v8.NodeManager.invokeNodeSync(NodeManager.java:584)
+	... 12 more
+Caused by: java.lang.NullPointerException
+	at mega.core.v8.NodeManager.registerJavaMethod(NodeManager.java:607)
+	at mega.core.js.AuraServer.lambda$0(AuraServer.java:34)
+	at mega.core.v8.NodeManager.lambda$16(NodeManager.java:576)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.core.jobs 4 2 2017-03-02 06:32:30.014
+!MESSAGE An internal error occurred during: "Starting Lightning Tools".
+!STACK 0
+java.lang.NullPointerException
+	at mega.core.index.AuraWorkspace$1.lambda$0(AuraWorkspace.java:227)
+	at mega.force.integration.ForceIDE.executeIfApplicable(ForceIDE.java:22)
+	at mega.core.index.AuraWorkspace$1.run(AuraWorkspace.java:226)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-03-02 06:32:35.564
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\ksulliva'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:33:13.196
+!MESSAGE  WARN [2017-03-02 06:33:13,182] (BaseRetryAspect.java:isLoginExceptionRetryable:124) - Login evaluation deemed exception not retry-able:
+ LoginFault: Invalid username, password, security token; or user locked out. Are you at a new location? When accessing Salesforce--either via a desktop client or the API--from outside of your company’s trusted networks, you must add a security token to your password to log in. To get your new security token, log in to Salesforce. From your personal settings, enter Reset My Security Token in the Quick Find box, then select Reset My Security Token.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:33:13.200
+!MESSAGE  WARN [2017-03-02 06:33:13,198] (BaseRetryAspect.java:isConnectionExceptionRetryable:159) - Connection evaluation deemed exception not retry-able:
+ LoginFault: Invalid username, password, security token; or user locked out. Are you at a new location? When accessing Salesforce--either via a desktop client or the API--from outside of your company’s trusted networks, you must add a security token to your password to log in. To get your new security token, log in to Salesforce. From your personal settings, enter Reset My Security Token in the Quick Find box, then select Reset My Security Token.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:33:13.204
+!MESSAGE  WARN [2017-03-02 06:33:13,202] (ProjectController.java:getRemotePackageNames:862) - Unable to get project packages for project 'test1': Invalid username, password, security token; or user locked out. Are you at a new location? When accessing Salesforce--either via a desktop client or the API--from outside of your company’s trusted networks, you must add a security token to your password to log in. To get your new security token, log in to Salesforce. From your personal settings, enter Reset My Security Token in the Quick Find box, then select Reset My Security Token.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:33:13.284
+!MESSAGE  WARN [2017-03-02 06:33:13,274] (ProjectOrganizationPage.java:prepareNextPage:263) - Unable to login: Invalid username, password, security token; or user locked out. Are you at a new location? When accessing Salesforce--either via a desktop client or the API--from outside of your company’s trusted networks, you must add a security token to your password to log in. To get your new security token, log in to Salesforce. From your personal settings, enter Reset My Security Token in the Quick Find box, then select Reset My Security Token.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:34:55.649
+!MESSAGE  WARN [2017-03-02 06:34:55,648] (ComponentResource.java:loadFromFile:430) - File 'src/package.xml' does not exist
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.521
+!MESSAGE  WARN [2017-03-02 06:36:15,513] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Nonprofit Success Pack/package.xml': Can't retrieve non-customizable CustomObject named: Addr_Verification_Settings__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.523
+!MESSAGE  WARN [2017-03-02 06:36:15,522] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Nonprofit Success Pack/package.xml': Can't retrieve non-customizable CustomObject named: Addr_Verification_Settings__c
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.525
+!MESSAGE  WARN [2017-03-02 06:36:15,523] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Dataloader_Bulk.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.526
+!MESSAGE  WARN [2017-03-02 06:36:15,525] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Dataloader_Partner.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.527
+!MESSAGE  WARN [2017-03-02 06:36:15,527] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Forcecom_IDE.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.529
+!MESSAGE  WARN [2017-03-02 06:36:15,528] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Forcecom_Migration_Tool.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.530
+!MESSAGE  WARN [2017-03-02 06:36:15,529] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce_Mobile_Dashboards.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.532
+!MESSAGE  WARN [2017-03-02 06:36:15,530] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce_Touch.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.534
+!MESSAGE  WARN [2017-03-02 06:36:15,532] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce_for_Outlook.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.535
+!MESSAGE  WARN [2017-03-02 06:36:15,534] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Workbench.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.537
+!MESSAGE  WARN [2017-03-02 06:36:15,536] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_Desktop.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.539
+!MESSAGE  WARN [2017-03-02 06:36:15,538] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce_Chatterbox.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.540
+!MESSAGE  WARN [2017-03-02 06:36:15,539] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:SalesforceA.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.541
+!MESSAGE  WARN [2017-03-02 06:36:15,540] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce1_for_Windows.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.543
+!MESSAGE  WARN [2017-03-02 06:36:15,542] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_iOS.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.545
+!MESSAGE  WARN [2017-03-02 06:36:15,544] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_BlackBerry.
+
+
+!ENTRY com.salesforce.ide.core 2 0 2017-03-02 06:36:15.546
+!MESSAGE  WARN [2017-03-02 06:36:15,545] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_Android.
+

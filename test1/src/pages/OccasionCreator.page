@@ -1,0 +1,167 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">    
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    
+        <head>
+            <title>RemoteObject Sample</title>
+            <meta name="viewport" 
+                  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css" />
+            <apex:stylesheet value="{!URLFOR($Resource.LightningDesignSystem, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+            <apex:remoteObjects jsNamespace="RemoteObjectModel">
+                <apex:remoteObjectModel name="Occasion__c" fields="Id" jsShorthand="Occasion">
+                    <apex:remoteObjectField name="Title__c" jsShorthand="Title" />
+                    <apex:remoteObjectField name="Date__c" jsShorthand="Date "/>
+                    <apex:remoteObjectField name="Location__c" jsShorthand="Location" />
+                </apex:remoteObjectModel>
+            </apex:remoteObjects>
+            <script type="text/javascript">
+            var dt;
+            var $j = jQuery.noConflict(); 
+            $j( function() {
+                $j( "#datepicker" ).datepicker({
+                    dateFormat: "yy-mm-dd",
+                    onSelect: function() {
+                        dt = $j(this).datepicker( 'getDate' ); // console.log( $j("#fselectedDate").val());
+                        console.log(dt);
+                    }               
+                });
+                
+            });
+            
+            
+            
+            function callback(err, ids){
+                
+                if (err) { 
+                    displayMsg(err.message); 
+                } else {
+                    displayMsg('Success! Occasion has been added.');
+                }
+                
+            }
+            
+            function displayMsg(msg){
+                $j('#result').html(msg);
+                $j('#notif').removeClass('slds-hide');
+            }
+            
+            function createOccasion(e){
+                if ($j('#fTitle').val().replace(' ','').length < 3 
+                    || $j('#fLocation').val().replace(' ','').length < 3
+                    || dt == null)
+                {
+                    //displayMsg('Please fill all the information');
+                }
+                else
+                {
+                    e.preventDefault();
+                    var record = new RemoteObjectModel.Occasion__c({
+                        Title__c: $j('#fTitle').val(),
+                        Date__c:  dt,
+                        Location__c: $j('#fLocation').val(),
+                        
+                    });
+                    
+                    record.create(callback);
+                }
+            }
+            
+            
+            function regBtnClickHandlers() {
+                $j('#save').click(function(e) {
+                    createOccasion(e);
+                });
+                $j('#closeModal').click(function(e) {
+                    $j('#notif').addClass('slds-hide');
+                    $j('#creationForm').trigger("reset");
+                });
+                
+                
+            }
+            
+            // And, finally, run the page
+            $j(document).ready(function() {
+                regBtnClickHandlers();
+            });
+            
+            </script>    
+        </head> 
+        
+        <body>                   
+            <div class="slds"> 
+                
+                    <div class="slds-media slds-media--center">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container--circle slds-icon-standard-event" title="create an occasion">
+                            <svg aria-hidden="true" class="slds-icon">
+                                <use xlink:href="{!URLFOR($Resource.lightningdesignsystem, '/assets/icons/standard-sprite/svg/symbols.svg#event')}"></use>
+                                </svg></span>
+                        </div>
+                        <div class="slds-media__body">
+                            <p class="slds-page-header__title slds-truncate slds-align-middle" title="Create an Occasion">
+                                Create an Occasion!</p>
+                        </div>
+                    </div>
+                
+                
+                <div id="notif" class="slds-hide">
+                    <div aria-hidden="false" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" role="alertdialog" class="slds-modal slds-modal--prompt slds-fade-in-open">
+                        <div class="slds-modal__container slds-modal--prompt" role="document" id="prompt-message-wrapper" tabindex="0">
+                            <div class="slds-modal__header slds-theme--error slds-theme--alert-texture">
+                                <h2 class="slds-text-heading--medium" id="prompt-heading-id">Occasion Creation Result</h2>
+                            </div>
+                            <div class="slds-modal__content slds-p-around--medium">
+                                <div>
+                                    <p id="result" />
+                                </div>
+                            </div>
+                            <div class="slds-modal__footer slds-theme--default">
+                                <button id="closeModal" class="slds-button slds-button--neutral">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-backdrop slds-backdrop--open"></div>
+                </div>
+                
+                <div id="create" >
+                    <form id="creationForm">
+                        
+                        
+                        <div class="slds-form--stacked">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="fTitle">Title</label>
+                                <div class="slds-form-element__control">
+                                    <input required="true" id="fTitle" class="slds-input" type="text" placeholder="Enter Title of the Occasion" />
+                                </div>
+                            </div>
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="fLocation">Location</label>
+                                <div class="slds-form-element__control">
+                                    <input required="true" id="fLocation" class="slds-input" type="text" placeholder="Enter Location of the Occasion" />
+                                </div>
+                            </div>
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="fDate">Date/Time</label>
+                                <div class="slds-form-element__control">
+                                    <input type="text" id="datepicker" class="slds-input" required="true" />
+                                </div>
+                            </div>
+                            <div class="slds-form-element">
+                                <button id="save" class="slds-button slds-button--brand">Save</button>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+                <div id="created" class="slds-hide">
+                    <button immediate="true" id="initbutton" class="slds-button slds-button--brand">Create Another</button>
+                    
+                </div>
+                
+            </div>
+        </body>
+        
+    </html>
+    
+</apex:page>

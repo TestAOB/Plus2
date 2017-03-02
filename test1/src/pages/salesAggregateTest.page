@@ -1,0 +1,10 @@
+<apex:page sidebar="false" controller="salesAggregate">
+<h1>{!ppp}</h1>
+   <apex:pageBlock title="Sales Aggregate">
+     <apex:pageBlockTable value="{!Results}" var="ar">
+       <apex:column headerValue="Stage Name" value="{!ar.StageName}"/>
+       <apex:column headerValue="Total Amount" value="{!ar.Amount}"/>
+       <apex:column headerValue="Number of Orders" value="{!ar.Total}"/>
+     </apex:pageBlockTable>
+   </apex:pageBlock>
+</apex:page>

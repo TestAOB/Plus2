@@ -1,0 +1,35 @@
+<apex:page controller="npsp.STG_PanelBDE_CTRL" >
+    <apex:form id="form" styleClass="slds-m-around--x-large">
+        <c:STG_PageHeader sectionLabel="{!$Label.npsp__stgnavdonations}" pageLabel="{!$Label.npsp__stgnavbde}" />
+        <c:UTIL_PageMessages />
+        <div class="slds-grid slds-grid--align-center slds-grid--vertical-align-center slds-p-around--large">
+            <apex:commandButton id="editBDE" value="{!$Label.npsp__stgbtnedit}" status="statusLoad" action="{!editSettings}" rendered="{!isReadOnlyMode}" immediate="true" rerender="form" styleClass="slds-button slds-button--small slds-button--neutral" />
+        </div>
+        <div class="slds-form--horizontal slds-m-around--large">
+            <div class="slds-form-element">
+                <apex:outputLabel value="{!$ObjectType.npsp__Batch_Data_Entry_Settings__c.Fields.npsp__Opportunity_Naming__c.Label}" for="cbxONC" styleClass="slds-form-element__label" />
+                <div class="slds-form-element__control">
+                    <apex:inputCheckbox value="{!stgService.stgBDE.npsp__Opportunity_Naming__c}" rendered="{!isEditMode}" id="cbxONC" html-aria-describedby="{!$Component.cbxONCHelp}" styleClass="slds-checkbox" />
+                    <apex:inputCheckbox value="{!stgService.stgBDE.npsp__Opportunity_Naming__c}" rendered="{!isReadOnlyMode}" disabled="true" id="cbxONCO" html-aria-describedby="{!$Component.cbxONCHelp}" styleClass="slds-checkbox" />
+                    <apex:outputPanel id="cbxONCHelp" layout="block">
+                        <apex:outputText styleClass="slds-form-element__help" value="{!$Label.npsp__stghelpbdeoppnaming}" />
+                    </apex:outputPanel>
+                </div>
+            </div>
+            <div class="slds-form-element">
+                <apex:outputLabel value="{!$ObjectType.npsp__Batch_Data_Entry_Settings__c.Fields.npsp__Allow_Blank_Opportunity_Names__c.Label}" for="cbxABON" styleClass="slds-form-element__label" />
+                <div class="slds-form-element__control">
+                    <apex:inputCheckbox value="{!stgService.stgBDE.npsp__Allow_Blank_Opportunity_Names__c}" rendered="{!isEditMode}" id="cbxABON" html-aria-describedby="{!$Component.cbxABONHelp}" styleClass="slds-checkbox" />
+                    <apex:inputCheckbox value="{!stgService.stgBDE.npsp__Allow_Blank_Opportunity_Names__c}" rendered="{!isReadOnlyMode}" disabled="true" id="cbxABONO" html-aria-describedby="{!$Component.cbxABONHelp}" styleClass="slds-checkbox" />
+                    <apex:outputPanel id="cbxABONHelp" layout="block">
+                        <apex:outputText styleClass="slds-form-element__help" value="{!$Label.npsp__stghelpbdeallowblankoppnames}" />
+                    </apex:outputPanel>
+                </div>
+            </div>
+        </div>
+        <div class="slds-grid slds-grid--align-center slds-grid--vertical-align-center slds-p-around--large">
+            <apex:commandButton id="saveBDE" value="{!$Label.npsp__stgbtnsave}" status="statusLoad" action="{!saveSettings}" immediate="false" rendered="{!isEditMode}" rerender="form" styleClass="slds-button slds-button--small slds-button--brand" />
+            <apex:commandButton id="cancelBDE" value="{!$Label.npsp__stgbtncancel}" status="statusLoad" action="{!cancelEdit}" immediate="true" rendered="{!isEditMode}" rerender="form" styleClass="slds-button slds-button--small slds-button--neutral" />
+        </div>
+    </apex:form>
+</apex:page>

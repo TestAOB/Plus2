@@ -1,0 +1,7 @@
+<apex:page controller="tmp1">
+  <!-- Begin Default Content REMOVE THIS -->
+  <apex:form >
+   <apex:dynamicComponent componentValue="{!dynamicForm}"/>
+  
+  <apex:commandButton action="{!saveAsDraft}" value="saveAsDraft"/></apex:form>
+</apex:page>

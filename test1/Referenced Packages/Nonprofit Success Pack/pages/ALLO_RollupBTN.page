@@ -1,0 +1,3 @@
+<apex:page standardController="npsp__General_Accounting_Unit__c" extensions="npsp.ALLO_RollupBTN_CTRL" action="{!buttonClick}" >
+	<c:UTIL_NavigateBack recordId="{!npsp__General_Accounting_Unit__c.Id}" redirect="true"/>
+</apex:page>

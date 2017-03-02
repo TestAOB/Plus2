@@ -1,0 +1,4 @@
+<aura:component implements="force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="recordId" type="String" />
+    <iframe frameBorder="0" height="300" width="100%" src="{!'/occasionmap?id='+v.recordId}"  />
+</aura:component>

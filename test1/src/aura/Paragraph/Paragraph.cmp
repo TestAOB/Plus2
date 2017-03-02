@@ -1,0 +1,4 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+	   <aura:attribute name="text" type="String" />  
+    <aura:unescapedHtml value="{!v.text}"/>
+</aura:component>

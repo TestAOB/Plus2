@@ -1,0 +1,13 @@
+<apex:page standardController="Campaign" extensions="npsp.HH_CampaignDedupeBTN_CTRL" action="{!runreport}" >
+
+    <br/><br/>    
+    <p><apex:outputLink target="_self" title="{!$Label.npsp__hhcmpdeduplabelreturntocmp}"  value="{!returnURL}" >{!$Label.npsp__hhcmpdeduplabelreturntocmp}</apex:outputLink></p>
+    <apex:PageMessages />
+    <apex:outputPanel rendered="{!reportURL != null}">
+	    <br/><br/>
+	    <apex:form >   
+		    <c:UTIL_JobProgress strBatchComponentLabel="{!$Label.npsp__hhcmpdedupebatchprogresstitle}" cNumberOfJobs="1" bRerenderOnComplete="true" />
+	        <p><apex:outputLink target="_self" title="Report"  value="{!reportURL}" >{!$Label.npsp__hhcmpdedupelabelopenreport}</apex:outputLink></p>
+        </apex:form>
+    </apex:outputPanel>
+</apex:page>

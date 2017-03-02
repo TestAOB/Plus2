@@ -1,0 +1,76 @@
+<apex:page StandardController="Account" Extensions="AccountExtension">
+    <apex:sectionHeader title="Account Edit" subtitle="{!account.name}"/>
+    
+    <apex:form id="accountEditForm" >
+        
+        <apex:pageBlock mode="detail" id="pageBlock">
+            
+            <apex:pageBlockButtons location="both">
+                <apex:commandButton value="Save" action="{!save}"  oncomplete="ifSyncAccount()" onclick="blockme();" rerender="pageMessageBlock,pageBlockSectionName" />
+                <apex:commandButton value="Cancel" action="{!cancel}" />
+            </apex:pageBlockButtons>            
+            
+            <apex:pageBlockSection id="pageBlockSectionName" title="Account Information" columns="2" collapsible="false" rendered="{!$ObjectType.Account.updateable}">
+                <apex:inputField value="{!account.Name}" label="Registered Name" required="true" id="accountName"/>
+                <apex:inputField value="{!account.Phone}" required="false" id="phone" /> 
+                <apex:inputField value="{!account.Fax}" required="false" id="fax" /> 
+                <apex:inputField value="{!account.Website}" required="false" id="website" />                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Address Information" columns="2" id="pageBlockSectionAddressInformation" rendered="{!$ObjectType.Account.updateable}" >
+                
+                <apex:inputField value="{!account.BillingStreet}"  required="false" id="BillingStreet"  />
+                <apex:inputField value="{!account.ShippingStreet}"  required="false" id="ShippingStreet"  />
+                
+                <apex:inputField value="{!account.BillingCity}" required="false"  id="BillingCity" />
+                <apex:inputField value="{!account.ShippingCity}" required="false"  id="ShippingCity" />
+                
+                
+                <apex:inputField value="{!account.BillingState}" required="false" id="BillingState"/>
+                <apex:inputField value="{!account.ShippingState}" required="false" id="ShippingState"/>
+                
+                <apex:pageBlockSectionItem id="pageBlockSectionItemPostalCodeBilling">
+                    <apex:outputLabel value="Billing Postal Code" for="ShippingPostalCode"/>
+                    <apex:outputPanel id="outputPanelBillingPostalCode">
+                        <apex:inputField value="{!account.BillingPostalCode}" required="false" id="BillingPostalCode"   /> 
+                        <apex:actionStatus id="POLookupStatusBilling">
+                            <apex:facet name="stop">          
+                                <apex:commandButton action="{!POLookupController1.Lookup}" value="Lookup" status="POLookupStatusBilling" rerender="POBilling" />
+                            </apex:facet>
+                            <apex:facet name="start">                           
+                                <apex:commandButton value="Wait..." status="POLookupStatusBilling" disabled="true"/>                            
+                            </apex:facet>
+                        </apex:actionStatus>        
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem id="pageBlockSectionItemPostalCode">
+                    <apex:outputLabel value="Shipping Postal Code" for="ShippingPostalCode"/>
+                    <apex:outputPanel id="outputPanelShippingPostalCode">
+                        <apex:inputText value="{!account.ShippingPostalCode}" id="ShippingPostalCode"/>
+                        <apex:actionStatus id="POLookupStatusShipping">
+                            <apex:facet name="stop"> 
+                                <apex:commandButton action="{!POLookupController2.Lookup}" status="POLookupStatusShipping" value="Lookup" rerender="POShipping" />
+                            </apex:facet>
+                            <apex:facet name="start">                           
+                                <apex:commandButton value="Wait..." status="POLookupStatusShipping" disabled="true"/>                               
+                            </apex:facet>
+                        </apex:actionStatus>  
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                
+                <c:PostCodeLookupComponent key="component1" id="POBilling" pageController="{!this}"  IsBilling="true"  Account="{!account}" PostCode="{!account.BillingPostalCode}"  />
+                <c:PostCodeLookupComponent key="component2" id="POShipping" pageController="{!this}" IsBilling="false" Account="{!account}" PostCode="{!account.ShippingPostalCode}"  />               
+                
+                <apex:selectList id="BillingCountry" size="1"  value="{!account.BillingCountry}">
+                    <apex:selectOption itemvalue="United Kingdom" itemlabel="United Kingdom"></apex:selectOption>
+                </apex:selectList>
+                
+                <apex:selectList id="ShippingCountry" size="1"  value="{!account.ShippingCountry}">
+                    <apex:selectOption itemvalue="United Kingdom" itemlabel="United Kingdom"></apex:selectOption>
+                </apex:selectList>
+            </apex:pageBlockSection> 
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>

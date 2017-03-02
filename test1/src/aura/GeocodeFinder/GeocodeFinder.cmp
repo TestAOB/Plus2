@@ -1,0 +1,43 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+    <ltng:require scripts="https://maps.google.com/maps/api/js" />
+    <aura:attribute name="addr" type="String" />
+    <aura:attribute name="lat" type="String" default="0" />
+    <aura:attribute name="lng" type="String" default="0" />
+    <aura:attribute name="renderFrame" type="Boolean" default="false" />
+    <aura:attribute name="frameHeight" type="Integer" default="0" />
+    <aura:method name="findGeo" action="{!c.handlePress}" description="call google GeoCode" />
+    
+    <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap">
+        <div class="slds-media slds-tile">
+            <div class="slds-media__figure">
+                <c:svgIcon svgPath="/resource/LightningDesignSystem/assets/icons/action-sprite/svg/symbols.svg#map" category="action" name="map" /> 
+            </div>
+            <div class="slds-media__body topSpace">
+                <span class="slds-text-heading--small ">Find Geo Location</span>
+            </div>
+        </div>
+        <div class="slds-panel__section">     
+            <div aura:id="err" class="slds-popover slds-nubbin--bottom-left slds-theme--error slds-hide" >
+                <div  class="slds-popover__body slds-text-longform">
+                    <ui:outputText aura:id="errorMessage" value=""  />
+                </div>
+            </div>
+            
+            <ui:inputText label="Address" placeholder="71 Sample Street, City, County" aura:id="addr" value="" required="true" keyup="{!c.searchEvents}"/>
+            
+            <ui:button class="slds-button slds-button--brand" label="Get Geocode" press="{!c.handlePress}" />
+            
+            
+            <table aura:id="result" class="slds-table slds-table--bordered slds-table--cell-buffer slds-hide" >
+                <tbody>
+                    <tr><td> Longitude: </td><td><ui:outputText aura:id="lng" value="" /> </td></tr>
+                    <tr><td> Latitude: </td><td><ui:outputText aura:id="lat" value=""  /></td></tr>
+                </tbody>
+            </table>
+            
+           <div aura:id="gmap" class="slds-hide" >
+                <iframe frameBorder="0" height="300" rendered="{!v.renderFrame}"  width="100%" src="{!'/geocodemap?lat='+v.lat+'&amp;lng='+v.lng+'&amp;addr='+v.addr}"  />
+            </div>
+        </div>
+    </div>
+</aura:component>

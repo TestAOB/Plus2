@@ -1,0 +1,12 @@
+.THIS {
+}
+
+.THIS.squareBorder {
+  min-width: 96px;
+  max-width: 320px;
+  margin-top: 2px;
+  border: 1px solid #d8dde6;
+  border-radius: 4px;
+  font-size: 12px;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.16);
+}

@@ -1,0 +1,3 @@
+<apex:page standardController="npsp__Address__c" extensions="npsp.ADDR_Validator" action="{!verifyAddressButton}">
+	<c:UTIL_NavigateBack recordId="{!npsp__Address__c.Id}" redirect="true"/>
+</apex:page>

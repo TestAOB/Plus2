@@ -1,0 +1,41 @@
+<apex:page >
+<apex:includeScript value="{!$Resource.json2_js}"/>
+<apex:includeScript value="{!URLFOR($Resource.cometd, 'dojo/dojo.js')}"/>
+<apex:includeScript value="{!$Resource.demo_js}"/>
+<apex:stylesheet value="{!$Resource.demo_css}"/>
+    <script>var token = '{!$Api.Session_ID}';</script>
+        <div id="demo">
+            <div id="datastream"></div>
+            <div id="input">
+                <div id="join">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td> Enter Topic Name </td>
+                                <td>
+                                    <input id="topic" type="text" />
+                                </td>
+                                <td>
+                                    <button id="subscribeButton" 
+                                        class="button">Subscribe</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="joined">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <button id="leaveButton" 
+                                        class="button">Unsubscribe</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</apex:page>

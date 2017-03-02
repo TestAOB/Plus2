@@ -1,0 +1,18 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="codeText" type="String" />   
+    
+    <ui:button aura:id="btnToggle" press="{!c.handlePress}" class="slds-button slds-button--neutral slds-not-selected" >
+        <span  class="slds-text-not-selected ">    
+            <c:svg class="slds-button__icon--stateful slds-button__icon--left" xlinkHref="/resource/LightningDesignSystem/assets/icons/utility-sprite/svg/symbols.svg#add"   /> 
+            &nbsp; View Source Code</span>
+        <span class="slds-text-selected">
+            <c:svg class="slds-button__icon--stateful slds-button__icon--left" xlinkHref="/resource/LightningDesignSystem/assets/icons/utility-sprite/svg/symbols.svg#check"   /> 
+            &nbsp; Showing Source Code</span>
+        <span class="slds-text-selected-focus">
+            <c:svg class="slds-button__icon--stateful slds-button__icon--left" xlinkHref="/resource/LightningDesignSystem/assets/icons/utility-sprite/svg/symbols.svg#close"   /> 
+            Hide Source Code</span>
+    </ui:button>
+    <div aura:id="divSource" class="slds-is-collapsed" style="background-color:WhiteSmoke;">
+        <aura:unescapedHtml value="{!v.codeText}"/>
+    </div>
+</aura:component>

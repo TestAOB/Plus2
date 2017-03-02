@@ -1,0 +1,8 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+	   <aura:attribute name="Title" type="String" />
+       <aura:attribute name="SubTitle" type="String" />
+    
+    <b>{!v.Title}</b>
+    <br />
+    <small> {!v.SubTitle}</small>
+</aura:component>

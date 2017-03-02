@@ -1,0 +1,6 @@
+<apex:page standardController="Account" >
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Mob Test Congratulations</h1>
+  This is your new Page
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>
